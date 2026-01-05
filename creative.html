@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Work – Zosia Trela Portfolio</title>
+    <title>Infinite Camping World – Creative Work | Zosia Trela</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* basic container styles */
+        #container {
+            width: 100%;
+            height: 600px; /* canvas height */
+            position: relative;
+        }
+
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.8);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Zosia Trela</h1>
-        <p>MS Computational Media Applicant</p>
+        <h1>Infinite Camping World</h1>
+        <p>Creative Work – Interactive Camping Map</p>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -18,3 +36,59 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+        <div id="container">
+            <div id="ui">
+                <label for="seedInput">World Seed:</label>
+                <input id="seedInput" type="text" value="default">
+                <button id="setSeedButton">Set Seed</button>
+                <p>Arrow/WASD keys to move, click to place tents.</p>
+            </div>
+        </div>
+
+        <div id="description">
+            <h2>About This Project</h2>
+                <p>
+                    “Infinite Camping World” is an interactive procedural map built with p5.js that generates an endlessly scrolling
+                    isometric landscape. The terrain is created using seeded noise (p5.js Perlin noise), so each world seed produces a
+                    consistent arrangement of water, grass, and dirt while still feeling organic.
+                </p>
+                <p>
+                    As you explore, the world populates with natural details like trees, flowers, and grass, and you can click to place
+                    tents on valid land tiles. Arrow keys or WASD move the camera, letting you navigate the environment and experiment
+                    with different seeds and layouts.
+                </p>
+                <p>
+                    This piece is part of a three-part interactive series focused on sustainability: responsible camping practices,
+                    the impact of deforestation, and the long-term process of reforestation. Together, the projects explore how
+                    procedural systems can communicate environmental change through playful interaction.
+                </p>
+        </div>
+    </main>
+
+    <!-- libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script src="js/xxhash.min.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/infinite_camping.js"></script>
+
+    <script>
+        // connect the seed input to engine.js
+        const seedInput = document.getElementById("seedInput");
+        const setSeedButton = document.getElementById("setSeedButton");
+
+        setSeedButton.addEventListener("click", () => {
+            const val = seedInput.value.trim();
+            if (val) {
+                if (window.p3_worldKeyChanged) {
+                    window.p3_worldKeyChanged(val);
+                }
+            }
+        });
+    </script>
+    <footer>
+        <p>&copy; 2026 Zosia Trela</p>
+    </footer>
+</body>
+</html>

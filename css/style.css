@@ -29,8 +29,60 @@ nav a {
 
 main {
     padding: 2em;
-    max-width: 900px;
+    max-width: 1200px; /* wider for module + description */
     margin: auto;
+    display: flex;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    gap: 2em;
+    justify-content: center;
+}
+
+/* interactive module container */
+#container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;  /* module default size */
+    height: 600px;     /* module default size */
+    border: 2px solid #555;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* UI overlay inside the module */
+#ui {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#ui input {
+    width: 120px;
+}
+
+#ui button {
+    padding: 4px 8px;
+}
+
+/* description panel next to module */
+#description {
+  width: 100%;
+  max-width: 900px;
+  line-height: 1.6;
+  margin: 0 auto;
+  flex-basis: 100%;
+}
+
+
+/* make the p5 canvas fill the container */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
 
 img {
