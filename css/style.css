@@ -204,6 +204,14 @@ img {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+.project-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 1.25em auto;
+  display: block;
+  border-radius: 10px;
+}
+
 /* p5 DOM elements created in engine.js (world key input, label, etc.) */
 #container p {
   color: var(--bg);

@@ -56,7 +56,6 @@ function preload() {
 }
 
 function setup() {
-  // store this globally (don't "let" it), so mouseClicked can check it
   canvas = createCanvas(800, 400);
   canvas.parent("container");
 
@@ -94,7 +93,6 @@ function rebuildWorld(key) {
 
 // only prevent default when clicking the actual canvas
 function mouseClicked(event) {
-  // if you clicked a link / button / anything else, allow normal behavior
   if (!canvas || !event || event.target !== canvas.elt) return;
 
   let world_pos = screenToWorld(

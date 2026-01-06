@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Living Impressions – Glacier National Park | Zosia Trela</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Living Impressions</h1>
+    <p>Glacier National Park – Generative Landscape</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="technical.html">Research</a></li>
+        <li><a href="creative.html">Camping World</a></li>
+        <li><a href="glacier.html">Glacier Impressions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <main>
+  <div id="container">
+    <div id="ui"></div>
+    <div id="canvas-container"></div>
+  </div>
+
+  <div id="description">
+    <h2>About This Project</h2>
+
+    <p>
+      “Living Impressions: Glacier National Park” is a generative landscape made with p5.js. This was an assignment for my
+      Generative Design class, inspired by Glacier National Park.
+    </p>
+
+    <img src="assets/glacier_reference.jpg" alt="Glacier National Park reference photo" class="project-image">
+
+    <p>
+      Each reimagination uses a new seed to produce a fresh arrangement of mountain silhouettes, hills, trees, clouds, and
+      wildflowers while keeping a consistent palette and layered composition.
+    </p>
+
+    <p>
+      Challenges included adding depth without visual noise, shaping clouds so they feel wind-driven, animating tree sway
+      without breaking composition, and keeping output stable across different canvas sizes. I used layered shapes in
+      back-to-front order, seeded randomness for repeatable outputs, subtle gradients for form, and low-amplitude noise over
+      time for motion.
+    </p>
+  </div>
+</main>
+
+
+  <!-- p5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <!-- your sketch -->
+  <script src="js/glacier_sketch.js"></script>
+
+  <footer>
+    <p>&copy; 2026 Zosia Trela</p>
+  </footer>
+</body>
+</html>
