@@ -27,36 +27,43 @@
             </ul>
         </nav>
     </header>
-
-    <main>
-        <div id="container">
-            <div id="ui">
-                <label for="seedInput">World Seed:</label>
-                <input id="seedInput" type="text" value="default">
-                <button id="setSeedButton">Set Seed</button>
-                <p>Arrow/WASD keys to move, click to place tents.</p>
-            </div>
+<main>
+    <div id="container">
+        <div id="ui">
+            <label for="seedInput">World Seed:</label>
+            <input id="seedInput" type="text" value="default">
+            <button id="setSeedButton">Set Seed</button>
+            <p>Arrow/WASD keys to move, click to place tents.</p>
         </div>
+    </div>
 
-        <div id="description">
-            <h2>About This Project</h2>
-                <p>
-                    “Infinite Camping World” is an interactive procedural map built with p5.js that generates an endlessly scrolling
-                    isometric landscape. The terrain is created using seeded noise (p5.js Perlin noise), so each world seed produces a
-                    consistent arrangement of water, grass, and dirt while still feeling organic.
-                </p>
-                <p>
-                    As you explore, the world populates with natural details like trees, flowers, and grass, and you can click to place
-                    tents on valid land tiles. Arrow keys or WASD move the camera, letting you navigate the environment and experiment
-                    with different seeds and layouts.
-                </p>
-                <p>
-                    This piece is part of a three-part interactive series focused on sustainability: responsible camping practices,
-                    the impact of deforestation, and the long-term process of reforestation. Together, the projects explore how
-                    procedural systems can be used to raise awareness on environmental issues.
-                </p>
-        </div>
-    </main>
+    <div id="description">
+        <h2>About This Project</h2>
+
+        <p>
+            “Infinite Camping World” is an interactive procedural map built with p5.js for a generative design course.
+            It generates an endlessly scrolling isometric landscape using seeded Perlin noise, allowing each world seed
+            to produce a varied environment.
+        </p>
+
+        <p>
+            The terrain is composed of water, grass, and dirt tiles, with decorations such as trees, flowers, and
+            grass placed based on simple rules. The camera can be moved using arrow keys or WASD, and players can place
+            tents on valid land tiles to interact with the world.
+        </p>
+
+        <p>
+            This project is part of a three-part interactive series focused on environmental themes, including
+            responsible camping, deforestation, and reforestation. My goal was to explore how procedural systems can
+            communicate ideas about land use by constraining player actions within the generated space.
+        </p>
+
+        <p>
+            Through this project, I worked with noise-based generation, rule-based placement, and camera navigation.
+        </p>
+    </div>
+</main>
+
 
     <!-- libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
