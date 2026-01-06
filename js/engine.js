@@ -6,6 +6,8 @@ let tile_rows, tile_columns;
 let camera_offset;
 let camera_velocity;
 
+let canvas;
+
 /////////////////////////////
 // Transforms between coordinate systems
 // These are actually slightly weirder than in full 3d...
@@ -54,7 +56,8 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(800, 400);
+  // store this globally (don't "let" it), so mouseClicked can check it
+  canvas = createCanvas(800, 400);
   canvas.parent("container");
 
   camera_offset = new p5.Vector(-width / 2, height / 2);
@@ -89,7 +92,11 @@ function rebuildWorld(key) {
   tile_rows = Math.ceil(height / (tile_height_step_main * 2));
 }
 
-function mouseClicked() {
+// only prevent default when clicking the actual canvas
+function mouseClicked(event) {
+  // if you clicked a link / button / anything else, allow normal behavior
+  if (!canvas || !event || event.target !== canvas.elt) return;
+
   let world_pos = screenToWorld(
     [0 - mouseX, mouseY],
     [camera_offset.x, camera_offset.y]
@@ -98,23 +105,23 @@ function mouseClicked() {
   if (window.p3_tileClicked) {
     window.p3_tileClicked(world_pos[0], world_pos[1]);
   }
-  return false;
+
+  return false; // prevent default only for canvas clicks
 }
 
 function draw() {
-    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
     camera_velocity.x -= 1;
-    }
-    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  }
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
     camera_velocity.x += 1;
-    }
-    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  }
+  if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     camera_velocity.y -= 1;
-    }
-    if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+  }
+  if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
     camera_velocity.y += 1;
-    }
-
+  }
 
   let camera_delta = new p5.Vector(0, 0);
   camera_velocity.add(camera_delta);

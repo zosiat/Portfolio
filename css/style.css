@@ -1,99 +1,249 @@
+:root {
+  --bg: #f6f8f5;
+  --bg-2: #eef4ef;
+  --text: #1f2a24;
+  --muted: #3a4a42;
+  --primary: #2f5d50;
+  --accent: #7fa89a;
+  --accent-2: #d9e8d3;
+  --border: #9db8ad;
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+/* base */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
+/* header */
 header {
-    background-color: #003366;
-    color: white;
-    padding: 1em;
-    text-align: center;
+  background-color: var(--primary);
+  color: var(--bg);
+  padding: 1.2em 1em;
+  text-align: center;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
 }
 
+header h1 {
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+header p {
+  margin: 0.35em 0 0 0;
+  color: rgba(246, 248, 245, 0.9);
+}
+
+/* nav */
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    padding: 0;
-    margin: 0.5em 0 0 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  padding: 0;
+  margin: 0.7em 0 0 0;
+  flex-wrap: wrap;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: rgba(246, 248, 245, 0.95);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0.15em 0.1em;
+  transition: color 0.2s ease;
 }
 
+nav a:hover {
+  color: var(--accent-2);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* layout */
 main {
-    padding: 2em;
-    max-width: 1200px; /* wider for module + description */
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap; /* allow wrapping on smaller screens */
-    gap: 2em;
-    justify-content: center;
+  padding: 2em;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
 }
 
 /* interactive module container */
 #container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;  /* module default size */
-    height: 600px;     /* module default size */
-    border: 2px solid #555;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg);
+  box-shadow: var(--shadow);
 }
 
 /* UI overlay inside the module */
 #ui {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 10;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-    border-radius: 5px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+
+  /* "field notebook" vibe */
+  background: rgba(47, 93, 80, 0.86);
+  color: var(--bg);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(217, 232, 211, 0.35);
+
+  /* subtle modern polish */
+  backdrop-filter: blur(4px);
+  font-size: 0.9rem;
+}
+
+#ui label {
+  letter-spacing: 0.03em;
 }
 
 #ui input {
-    width: 120px;
+  width: 140px;
+  padding: 6px 8px;
+  margin: 6px 0 6px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(246, 248, 245, 0.55);
+  background: rgba(246, 248, 245, 0.92);
+  color: var(--text);
+  outline: none;
+}
+
+#ui input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(127, 168, 154, 0.25);
 }
 
 #ui button {
-    padding: 4px 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(246, 248, 245, 0.55);
+  background: rgba(217, 232, 211, 0.95);
+  color: #1f2a24;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.08s ease, background 0.2s ease;
 }
 
-/* description panel next to module */
+#ui button:hover {
+  background: rgba(217, 232, 211, 1);
+}
+
+#ui button:active {
+  transform: translateY(1px);
+}
+
+/* description panel */
 #description {
   width: 100%;
   max-width: 900px;
-  line-height: 1.6;
+  line-height: 1.75;
   margin: 0 auto;
   flex-basis: 100%;
+  color: var(--muted);
 }
 
+#description h2 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 0;
+
+  /* subtle "trail marker" accent */
+  border-left: 4px solid var(--accent);
+  padding-left: 0.6em;
+}
 
 /* make the p5 canvas fill the container */
 canvas {
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
 
+/* media */
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1em 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* p5 DOM elements created in engine.js (world key input, label, etc.) */
+#container p {
+  color: var(--bg);
+}
+
+#container input[type="text"] {
+  color: var(--text);
+  background: rgba(246, 248, 245, 0.92);
+  border: 1px solid rgba(246, 248, 245, 0.55);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+/* placeholder text, if any */
+#container input::placeholder {
+  color: rgba(31, 42, 36, 0.55);
+}
+
+/* footer */
 footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #eee;
+  text-align: center;
+  padding: 1.2em 1em;
+  background-color: #e9efe9;
+  color: var(--muted);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+  main {
+    padding: 1.25em;
+  }
+
+  #container {
+    height: 520px;
+  }
+
+  #ui {
+    top: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+  }
 }
