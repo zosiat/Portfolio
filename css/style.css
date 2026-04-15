@@ -240,17 +240,104 @@ footer {
 }
 
 .video-wrapper {
-    width: 100%;
-    max-width: 900px;
-    aspect-ratio: 16 / 9;
-    margin: 1.5rem auto;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin: 1.5rem auto;
 }
 
 .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* about page */
+#about-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.about-text {
+  flex: 1.8;
+  min-width: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.about-text h2 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 0;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.6em;
+}
+
+.about-image {
+  flex: 0 0 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.headshot-card {
+  width: 100%;
+  max-width: 280px;
+  background: rgba(246, 248, 245, 0.92);
+  border: 1px solid rgba(157, 184, 173, 0.65);
+  border-radius: 16px;
+  padding: 0.9rem;
+  box-shadow: var(--shadow);
+  transform: rotate(1deg);
+  animation: floatCard 4s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.headshot-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.headshot {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.stats-card {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(157, 184, 173, 0.5);
+}
+
+.stats-card h3 {
+  margin: 0 0 0.6rem 0;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.stats-card p {
+  margin: 0 0 0.45rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@keyframes floatCard {
+  0% {
+    transform: rotate(1deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-6px);
+  }
+  100% {
+    transform: rotate(1deg) translateY(0);
+  }
 }
 
 /* responsive tweaks */
@@ -267,5 +354,24 @@ footer {
     top: 10px;
     left: 10px;
     max-width: calc(100% - 20px);
+  }
+
+  #about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-image {
+    width: 100%;
+    flex: none;
+  }
+
+  .headshot-card {
+    max-width: 260px;
+  }
+
+  .headshot {
+    max-width: 220px;
   }
 }
